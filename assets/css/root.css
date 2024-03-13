@@ -54,9 +54,15 @@
     --fc-primary-golden200: #d7c8ae;
     --fc-golden100: #f4ead8;
     --fc-golden200: #E0B764;
+    --fc-golden300: #544d40;
+    --fc-golden400: #4c3812;
 }
 
 @media(min-width:320px) {
+    .btnfeb {
+        --fs-mmd: 18px;
+    }
+
     .accordianhead {
         --fs-md: 13px;
     }
@@ -195,6 +201,10 @@
 }
 
 @media(min-width:576px) {
+    .btnfeb {
+        --fs-mmd: 20px;
+    }
+
     .submission {
         --fs-xl: 48px;
     }

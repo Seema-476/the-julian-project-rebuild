@@ -166,7 +166,6 @@
     max-width: 524px;
 }
 
-
 /* --------------------------------------------card--------------------------------- */
 .svgcircle {
     width: 36px;
@@ -349,12 +348,31 @@
     z-index: 1;
 }
 
-.nav-item::after {
+.nav.nav-tabs .nav-item .nav-link.active.nav-link::after {
+    padding: 1px;
+}
+
+/* .nav.nav-tabs .nav-item.active.nav-item::after {
+    padding: 1px;
+} */
+
+/* .nav li.active {
+    border: 10px solid black;
+} */
+
+/* .nav.nav-tabs .nav-item.active {
+    border: 5px solid red;
+} */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 8px;
-    padding: 0px 0 0 2px;
+    padding: 0;
     background: linear-gradient(45deg, var(--fc-primary-golden), var(--fc-primary-golden100));
     -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
@@ -364,12 +382,13 @@
     z-index: -1;
 }
 
-.nav.nav-tabs .nav-item:hover.nav-item::after {
+
+.nav-item::after {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 8px;
-    padding: 1px 1px 1px 2px;
+    padding: 0px 0 0 2px;
     background: linear-gradient(45deg, var(--fc-primary-golden), var(--fc-primary-golden100));
     -webkit-mask:
         linear-gradient(#fff 0 0) content-box,
@@ -569,16 +588,36 @@
 }
 
 .cardborder {
-    border: 0.5px solid var(--fc-light-brown);
+    border: none;
     border-radius: 24px;
     padding: 24px;
     transition: 300ms linear;
     background: var(--fc-light-secondary-gray);
+    position: relative;
+    z-index: 2;
+}
+
+.cardborder::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    inset: 0;
+    padding: 0.5px 0.5px 0.5px 0.5px;
+    border-radius: 24px;
+    background: linear-gradient(45deg, var(--fc-golden300), var(--fc-golden400));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+}
+
+.cardborder:hover::after {
+    display: none;
 }
 
 .cardborder:hover {
     background-color: var(--fc-light-brown);
-    border: 0.2px solid transparent;
+    border: 0.5px solid transparent;
 }
 
 .cardborder:hover .cardsvg .cardheading .cardpara {
@@ -852,7 +891,7 @@
     background: linear-gradient(146.79deg, var(--fc-linear-golden) 0%, var(--fc-linear-golden1) 97.77%);
     top: 15px;
     bottom: 14%;
-    left: 9%;
+    left: 7%;
     margin-left: 8px;
     z-index: 1;
 }
@@ -866,6 +905,7 @@
     border-bottom: 1px solid var(--fc-light-gray400);
     border-bottom: 1px solid var(--fc-light-gray400);
     max-width: 962px;
+    width: 100%;
     display: flex;
     margin-left: 125px;
 }
@@ -1201,6 +1241,7 @@
     line-height: 26px;
     letter-spacing: 0em;
     text-align: center;
+    padding-bottom: 64px;
 }
 
 .mr-40 {
@@ -1221,7 +1262,7 @@
     background: linear-gradient(146.79deg, var(--fc-linear-golden) 0%, var(--fc-linear-golden1) 97.77%);
     top: 15px;
     bottom: 10%;
-    left: 13%;
+    left: 15%;
     margin-left: 8px;
     z-index: 1;
 }
@@ -1660,6 +1701,11 @@
     border-bottom: 1px solid var(--fc-gray-900) !important;
     position: relative;
     z-index: 2;
+    white-space: nowrap;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
 }
 
 .nav-pills .nav-link1.active {
@@ -1696,11 +1742,11 @@
 .nav-link1.active::after {
     content: "";
     position: absolute;
-    width: 3%;
+    width: 8px;
     height: 100%;
     inset: 0;
     border-radius: 0px;
-    left: 97%;
+    left: 98%;
     top: 0;
     bottom: 0;
     background: linear-gradient(to right, var(--fc-linear-golden) 0 20%, var(--fc-linear-golden1) 21% 100%);
@@ -2130,7 +2176,7 @@
     .menulist {
         width: 100%;
         height: 100vh;
-        background-color: black;
+        background-color: var(--fc-black);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2156,7 +2202,7 @@
     .menuicon>span {
         width: 100%;
         height: 4px;
-        background-color: #ffffff;
+        background-color: var(--fc-white);
     }
 
     .overflowhidden {
@@ -2213,6 +2259,17 @@
 }
 
 @media(min-width:320px) {
+    .tab-pane1 {
+        padding-top: 0;
+    }
+
+    .nav-link1.active::after {
+        width: 100%;
+        height: 8px;
+        left: 0;
+        top: 89%;
+    }
+
     .bgimage {
         background-image: url(../images/herobg.png);
     }
@@ -2277,23 +2334,23 @@
     }
 
     .step::after {
-        left: -84px;
+        left: -90px;
     }
 
     .step2::after {
-        left: -84px;
+        left: -90px;
     }
 
     .step3::after {
-        left: -84px;
+        left: -90px;
     }
 
     .step4::after {
-        left: -84px;
+        left: -90px;
     }
 
     .step5::after {
-        left: -84px;
+        left: -90px;
     }
 
     .paddinglefttext {
@@ -2310,7 +2367,7 @@
     }
 
     .svgcircle1 {
-        width: 61px;
+        width: 70px;
         height: 34px;
 
     }
@@ -2339,6 +2396,13 @@
         bottom: 0;
     }
 
+}
+
+@media(min-width:375px) {
+    .svgcircle1 {
+        width: 72px;
+        min-height: 41px;
+    }
 }
 
 @media(min-width:425px) {
@@ -2379,34 +2443,33 @@
     }
 
     .step::after {
-        left: -70px;
+        left: -82px;
     }
 
     .step2::after {
-        left: -70px;
+        left: -82px;
     }
 
     .step3::after {
-        left: -70px;
+        left: -82px;
     }
 
     .step4::after {
-        left: -70px;
+        left: -82px;
     }
 
     .step5::after {
-        left: -70px;
-    }
-
-    .applicationline .svgcircle1 svg {
-        width: 15px;
-        height: 16px;
+        left: -82px;
     }
 
     .svgcircle1 {
-        width: 51px;
-        height: 41px;
+        width: 72px;
+        min-height: 52px;
+    }
 
+    .applicationline .svgcircle1 svg {
+        width: 23px;
+        height: 24px;
     }
 
 }
@@ -2463,23 +2526,23 @@
     }
 
     .step::after {
-        left: -65px;
+        left: -74px;
     }
 
     .step2::after {
-        left: -65px;
+        left: -74px;
     }
 
     .step3::after {
-        left: -65px;
+        left: -74px;
     }
 
     .step4::after {
-        left: -65px;
+        left: -74px;
     }
 
     .step5::after {
-        left: -65px;
+        left: -74px;
     }
 
     .dive {
@@ -2493,7 +2556,7 @@
 
     .svgcircle1 {
         width: 61px;
-        height: 61px;
+        min-height: 51px;
 
     }
 
@@ -2579,23 +2642,23 @@
     }
 
     .step::after {
-        left: -50px;
+        left: -65px;
     }
 
     .step2::after {
-        left: -50px;
+        left: -65px;
     }
 
     .step3::after {
-        left: -50px;
+        left: -65px;
     }
 
     .step4::after {
-        left: -50px;
+        left: -65px;
     }
 
     .step5::after {
-        left: -50px;
+        left: -65px;
     }
 
     .absolutenext {
@@ -2615,9 +2678,30 @@
     .slick-track {
         gap: 30px !important;
     }
+
+    .svgcircle1 {
+        min-height: 54px;
+        width: 54px;
+    }
 }
 
 @media(min-width:992px) {
+    .tab-pane1 {
+        padding-top: 29px;
+    }
+
+    .nav-link1.active::after {
+        width: 8px;
+        height: 100%;
+        left: 98.2%;
+        top: 0;
+    }
+
+    .svgcircle1 {
+        min-height: 61px;
+        width: 61px;
+    }
+
     .paddinggrades1 {
         padding-left: 12px;
     }
@@ -2635,7 +2719,7 @@
     }
 
     .timeline::after {
-        left: 6.5%;
+        left: 4.5%;
     }
 
     .historybg {
@@ -2694,19 +2778,19 @@
     }
 
     .step2::after {
-        left: -45px;
+        left: -70px;
     }
 
     .step3::after {
-        left: -45px;
+        left: -70px;
     }
 
     .step4::after {
-        left: -45px;
+        left: -70px;
     }
 
     .step5::after {
-        left: -45px;
+        left: -70px;
     }
 
     .absolutenext {
@@ -2732,7 +2816,7 @@
     }
 
     .step::after {
-        left: -52px;
+        left: -70px;
     }
 }
 
@@ -2743,7 +2827,7 @@
     }
 
     .timeline::after {
-        left: 9.5%;
+        left: 12%;
     }
 
     .shadowbox {
@@ -2755,55 +2839,55 @@
     }
 
     .step1::after {
-        left: 133px;
+        left: 154px;
     }
 
     .step5-6::after {
-        left: 133px;
+        left: 154px;
     }
 
     .step7-12::after {
-        left: 133px;
+        left: 154px;
     }
 
     .step13-14::after {
-        left: 133px;
+        left: 154px;
     }
 
     .step16-24::after {
-        left: 133px;
+        left: 154px;
     }
 
     .step25-26::after {
-        left: 133px;
+        left: 154px;
     }
 
     .step27-29::after {
-        left: 133px;
+        left: 154px;
     }
 
     .step30::after {
-        left: 133px;
+        left: 154px;
     }
 
     .step::after {
-        left: 90px;
+        left: 113px;
     }
 
     .step2::after {
-        left: 90px;
+        left: 113px;
     }
 
     .step3::after {
-        left: 90px;
+        left: 113px;
     }
 
     .step4::after {
-        left: 90px;
+        left: 113px;
     }
 
     .step5::after {
-        left: 90px;
+        left: 113px;
     }
 
     .absolutenext {
@@ -2851,7 +2935,7 @@
     }
 
     .timeline::after {
-        left: 8.5%;
+        left: 10.5%;
     }
 
     .timeline-1::after {

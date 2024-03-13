@@ -13,6 +13,22 @@ accordianbtn.forEach((e) => {
     })
 
 })
+
+// ===============navtab================
+
+// const navItem = document.querySelectorAll(".nav-item");
+// navItem.forEach((nav) => {
+
+//     nav.addEventListener("click", () => {
+//         const activebtn = document.querySelector(".active")
+//         nav.classList.toggle("active");
+//         activebtn && activebtn.classList.remove("active")
+//     })
+// })
+
+
+
+
 $('.responsive').slick({
     dots: true,
     infinite: true,
